@@ -5,6 +5,7 @@
  */
 package Main;
 
+import DataPemasok.dataPemasok;
 import javax.swing.ImageIcon;
 import DataProduk.form_addProduct;
 import DataProdukBarang.form_tambahProdukBarang;
@@ -32,6 +33,9 @@ public class Mainhome extends javax.swing.JFrame {
     Statement st;
     String kategori_jasa = null; //untuk memberi kondisi pada ubah Data Jasa
     public String id_produk = null; //mengambil ID Produk agar bisa dikirim value nya ke form lain
+    String id_stokBarang = null;
+    int stok;
+    String id_pemasok = null;
     public Mainhome() {
         initComponents();
         panel_beranda.setVisible(false);
@@ -47,6 +51,7 @@ public class Mainhome extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
 
         panel_transaksiBeli = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -67,6 +72,40 @@ public class Mainhome extends javax.swing.JFrame {
         bg_transaksiBeli = new javax.swing.JLabel();
         Welcome_Screen = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        panel_dataPemasok = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TabelPemasok = new javax.swing.JTable(){
+
+            public boolean isCellEditable(int rowIndex, int colIndex)
+            {
+                return false; //Disallow the editing of any cell
+            }
+
+        };
+        bg_dataPemasok = new javax.swing.JLabel();
+        panel_beranda = new javax.swing.JPanel();
+        greetingpanel = new javax.swing.JLabel();
+        bg_berand = new javax.swing.JLabel();
+        panel_dataStok = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_searchProduk1 = new javax.swing.JTextField();
+        bgt_serachBox1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TabelStok = new javax.swing.JTable(){
+
+            public boolean isCellEditable(int rowIndex, int colIndex)
+            {
+                return false; //Disallow the editing of any cell
+            }
+
+        };
+        bg_dataStok = new javax.swing.JLabel();
         panel_dataProduk = new javax.swing.JPanel();
         btn_hapusProduk = new javax.swing.JLabel();
         btn_ubahProduk = new javax.swing.JLabel();
@@ -90,10 +129,12 @@ public class Mainhome extends javax.swing.JFrame {
         bg_berand = new javax.swing.JLabel();
         panel_dataStok = new javax.swing.JPanel();
         bg_dataStok = new javax.swing.JLabel();
+        Welcome_Screen = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        panel_transaksiBeli = new javax.swing.JPanel();
+        bg_transaksiBeli = new javax.swing.JLabel();
         panel_transaksiJual = new javax.swing.JPanel();
         bg_transaksiJual = new javax.swing.JLabel();
-        panel_dataPemasok = new javax.swing.JPanel();
-        bg_dataPemasok = new javax.swing.JLabel();
         panel_Laporan = new javax.swing.JPanel();
         bg_Laporan = new javax.swing.JLabel();
         panel_Lainnya = new javax.swing.JPanel();
@@ -195,6 +236,182 @@ public class Mainhome extends javax.swing.JFrame {
         Welcome_Screen.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
         getContentPane().add(Welcome_Screen, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 0, 960, 710));
+        panel_dataPemasok.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField1.setFont(new java.awt.Font("Quicksand Medium", 0, 14)); // NOI18N
+        jTextField1.setBorder(null);
+        jTextField1.setOpaque(false);
+        panel_dataPemasok.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 125, 460, 30));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/btn_hapusPemasok.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+        panel_dataPemasok.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 125, 90, 30));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/btn_ubahPemasok.png"))); // NOI18N
+        panel_dataPemasok.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 125, 90, 30));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/btn_tambahPemasok.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
+        panel_dataPemasok.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 124, 90, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/searchBoxPemasok.png"))); // NOI18N
+        panel_dataPemasok.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 550, 40));
+
+        jScrollPane3.setBorder(null);
+
+        TabelPemasok.setFont(new java.awt.Font("Quicksand Medium", 0, 15)); // NOI18N
+        TabelPemasok.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID Pemasok", "Nama Pemasok", "Usaha", "Alamat Usaha", "No Telpon"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TabelPemasok.setRowHeight(40);
+        TabelPemasok.getTableHeader().setResizingAllowed(false);
+        TabelPemasok.getTableHeader().setReorderingAllowed(false);
+        TabelPemasok.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelPemasokMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(TabelPemasok);
+        if (TabelPemasok.getColumnModel().getColumnCount() > 0) {
+            TabelPemasok.getColumnModel().getColumn(0).setResizable(false);
+            TabelPemasok.getColumnModel().getColumn(1).setResizable(false);
+            TabelPemasok.getColumnModel().getColumn(2).setResizable(false);
+            TabelPemasok.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        panel_dataPemasok.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 177, 860, 500));
+
+        bg_dataPemasok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/formDatapemasok.png"))); // NOI18N
+        panel_dataPemasok.add(bg_dataPemasok, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
+
+        getContentPane().add(panel_dataPemasok, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
+
+        panel_beranda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        greetingpanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        greetingpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Beranda/greetingsPanel.png"))); // NOI18N
+        panel_beranda.add(greetingpanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 880, 220));
+
+        bg_berand.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Beranda/fotmBeranda.png"))); // NOI18N
+        panel_beranda.add(bg_berand, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
+
+        getContentPane().add(panel_beranda, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
+
+        panel_dataStok.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataStok/btn_kurangStok.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        panel_dataStok.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 124, 90, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataStok/btn_tambahStok.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        panel_dataStok.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 124, 90, -1));
+
+        txt_searchProduk1.setFont(new java.awt.Font("Quicksand Medium", 0, 14)); // NOI18N
+        txt_searchProduk1.setBorder(null);
+        txt_searchProduk1.setOpaque(false);
+        panel_dataStok.add(txt_searchProduk1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 125, 290, 30));
+
+        bgt_serachBox1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataStok/searchBox (1).png"))); // NOI18N
+        panel_dataStok.add(bgt_serachBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 640, 60));
+
+        jScrollPane2.setBorder(null);
+
+        TabelStok.setFont(new java.awt.Font("Quicksand Medium", 0, 15)); // NOI18N
+        TabelStok.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Kode Barang", "Nama Barang", "Stok"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TabelStok.setRowHeight(40);
+        TabelStok.getTableHeader().setResizingAllowed(false);
+        TabelStok.getTableHeader().setReorderingAllowed(false);
+        TabelStok.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelStokMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(TabelStok);
+        if (TabelStok.getColumnModel().getColumnCount() > 0) {
+            TabelStok.getColumnModel().getColumn(0).setResizable(false);
+            TabelStok.getColumnModel().getColumn(1).setResizable(false);
+            TabelStok.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        panel_dataStok.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 860, 470));
+
+        bg_dataStok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataStok/formDataStok.png"))); // NOI18N
+        panel_dataStok.add(bg_dataStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
+
+        getContentPane().add(panel_dataStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
 
         panel_dataProduk.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -291,7 +508,10 @@ public class Mainhome extends javax.swing.JFrame {
         if (TabelProduk.getColumnModel().getColumnCount() > 0) {
             TabelProduk.getColumnModel().getColumn(0).setResizable(false);
             TabelProduk.getColumnModel().getColumn(1).setResizable(false);
+            TabelProduk.getColumnModel().getColumn(2).setResizable(false);
+            TabelProduk.getColumnModel().getColumn(3).setHeaderValue("Harga Beli");
             TabelProduk.getColumnModel().getColumn(4).setResizable(false);
+            TabelProduk.getColumnModel().getColumn(4).setHeaderValue("Harga Jual");
         }
 
         panel_dataProduk.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 177, 860, 500));
@@ -303,7 +523,6 @@ public class Mainhome extends javax.swing.JFrame {
         panel_dataProduk.add(lbl_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 46, -1, -1));
 
         getContentPane().add(panel_dataProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
-
         panel_beranda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         greetingpanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -321,6 +540,20 @@ public class Mainhome extends javax.swing.JFrame {
         panel_dataStok.add(bg_dataStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
 
         getContentPane().add(panel_dataStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
+        Welcome_Screen.setBackground(new java.awt.Color(237, 237, 237));
+        Welcome_Screen.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Main/tampilan_welcome.png"))); // NOI18N
+        Welcome_Screen.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
+
+        getContentPane().add(Welcome_Screen, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 0, 960, 710));
+
+        panel_transaksiBeli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        bg_transaksiBeli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TransaksiBeli/formTransbeli.png"))); // NOI18N
+        panel_transaksiBeli.add(bg_transaksiBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
+
+        getContentPane().add(panel_transaksiBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
 
         panel_transaksiJual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -328,13 +561,6 @@ public class Mainhome extends javax.swing.JFrame {
         panel_transaksiJual.add(bg_transaksiJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
 
         getContentPane().add(panel_transaksiJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
-
-        panel_dataPemasok.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        bg_dataPemasok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/formDatapemasok.png"))); // NOI18N
-        panel_dataPemasok.add(bg_dataPemasok, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
-
-        getContentPane().add(panel_dataPemasok, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
 
         panel_Laporan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -465,6 +691,68 @@ public class Mainhome extends javax.swing.JFrame {
                 System.out.println("Gagal mendapatkan Data!");
          }
     }
+    public void loadTableStok(){
+        DefaultTableModel tbl = new DefaultTableModel();
+            TabelStok.setBorder(null);
+            jScrollPane2.setBorder(null);
+            tbl.addColumn("ID Produk");
+            tbl.addColumn("Nama Produk");
+            tbl.addColumn("Jumlah Stok");
+            TabelStok.setModel(tbl);
+            try {
+                String sql = "SELECT tb_produk.id_produk, tb_produk.nama_produk, tb_stokbarang.stok_produk FROM tb_produk, tb_stokbarang\n"
+                        + "WHERE tb_produk.id_produk = tb_stokbarang.id_produk;";
+                java.sql.Connection conn = (Connection)konekdb.GetConnection();
+                java.sql.Statement stm = conn.createStatement();
+                java.sql.ResultSet res = stm.executeQuery(sql);
+                while(res.next())
+                {
+                    tbl.addRow(new Object[]{
+                        res.getString("id_produk"),
+                        res.getString("nama_produk"),
+                        res.getString("stok_produk")
+            });
+                    
+                TabelStok.setModel(tbl);
+            }
+         } catch (Exception e) {
+                System.err.println(e.getMessage());
+                System.out.println("Gagal mendapatkan Data!");
+         }
+        
+    }
+    public void loadTablePemasok(){
+        DefaultTableModel tb = new DefaultTableModel();
+        TabelPemasok.setBorder(null);
+        jScrollPane3.setBorder(null);
+            tb.addColumn("ID Pemasok");
+            tb.addColumn("Nama Pemasok");
+            tb.addColumn("Usaha");
+            tb.addColumn("Alamat Usaha");
+            tb.addColumn("No Telpon");
+            TabelPemasok.setModel(tb);
+            try {
+                String sql = "SELECT * FROM tb_pemasok;";
+                java.sql.Connection conn = (Connection)konekdb.GetConnection();
+                java.sql.Statement stm = conn.createStatement();
+                java.sql.ResultSet res = stm.executeQuery(sql);
+                while(res.next())
+                {
+                    tb.addRow(new Object[]{
+                        res.getString("id_pemasok"),
+                        res.getString("nama_pemasok"),
+                        res.getString("nama_usaha"),
+                        res.getString("alamat_usaha"),
+                        res.getString("no_telp_pemasok")
+            });
+                    
+                TabelPemasok.setModel(tb);
+            }
+         } catch (Exception e) {
+                System.err.println(e.getMessage());
+                System.out.println("Gagal mendapatkan Data!");
+         }
+    }
     private void btn_berandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_berandaMouseClicked
         // TODO add your handling code here:
         ImageIcon berandaclick = new ImageIcon("src/SideBar/sidebar_beranda.png");
@@ -482,7 +770,7 @@ public class Mainhome extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_berandaMouseClicked
 
     private void btn_dataProdukMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dataProdukMouseEntered
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btn_dataProdukMouseEntered
 
     public boolean isCellEditable(int row, int column) {
@@ -526,6 +814,7 @@ public class Mainhome extends javax.swing.JFrame {
         panel_dataPemasok.setVisible(false);
         panel_Laporan.setVisible(false);
         panel_Lainnya.setVisible(false);
+        loadTableStok();
         
     }//GEN-LAST:event_btn_dataStokMouseClicked
 
@@ -561,6 +850,7 @@ public class Mainhome extends javax.swing.JFrame {
 
     private void btn_dataPemasokMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_dataPemasokMouseClicked
         // TODO add your handling code here:
+        loadTablePemasok();
         ImageIcon pemasok = new ImageIcon("src/SideBar/side_dataPemasok.png");
         sidebar.setIcon(pemasok);
         Welcome_Screen.setVisible(false);
@@ -719,10 +1009,10 @@ public class Mainhome extends javax.swing.JFrame {
         if (id_produk==null) {
             JOptionPane.showMessageDialog(null, "Harap Pilih data Produk!");
         } else if(kategori_jasa.equals("jasa")){
-            DataProdukJasa.notif_warninghapusProdukJasa tj = new DataProdukJasa.notif_warninghapusProdukJasa(this, false);
+            DataProdukJasa.notif_warninghapusProdukJasa tj = new DataProdukJasa.notif_warninghapusProdukJasa(this, true);
             tj.setVisible(true);
         } else {
-            DataProdukBarang.notif_warningHapusProdukBarang pb = new DataProdukBarang.notif_warningHapusProdukBarang(this, false);
+            DataProdukBarang.notif_warningHapusProdukBarang pb = new DataProdukBarang.notif_warningHapusProdukBarang(this, true);
             pb.setVisible(true);
         }
     }//GEN-LAST:event_btn_hapusProdukMouseClicked
@@ -732,6 +1022,57 @@ public class Mainhome extends javax.swing.JFrame {
         tambah_barang_cari tambar = new tambah_barang_cari(this, true);
         tambar.setVisible(true);
     }//GEN-LAST:event_btnTambah3MouseClicked
+    private void TabelStokMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelStokMouseClicked
+        // TODO add your handling code here:
+        
+        int baris= TabelStok.rowAtPoint(evt.getPoint());
+        id_stokBarang = TabelStok.getValueAt(baris, 0).toString();
+        System.out.println("ID PRODUK = "+id_stokBarang);
+    }//GEN-LAST:event_TabelStokMouseClicked
+    public String getIdStok(){
+        return id_stokBarang;
+    }
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        DataStok.TambahStok ts = new DataStok.TambahStok(this, true);
+        ts.txt__kodeProduk.setText(getIdStok());
+        ts.loadDataStok();
+        ts.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        // TODO add your handling code here:
+        DataStok.KurangStok ks = new DataStok.KurangStok(this, true);
+        ks.txt__kodeProduk.setText(getIdStok());
+        ks.loadDataStok();
+        ks.setVisible(true);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void TabelPemasokMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelPemasokMouseClicked
+        // TODO add your handling code here:
+        int baris= TabelPemasok.rowAtPoint(evt.getPoint());
+        id_pemasok = TabelPemasok.getValueAt(baris, 0).toString();
+        System.out.println("ID PEMASOK = "+id_pemasok);
+    }//GEN-LAST:event_TabelPemasokMouseClicked
+
+    public String getIdPemasok(){
+        return id_pemasok;
+    }
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        DataPemasok.formTambahPemasok tp = new DataPemasok.formTambahPemasok(this, true);
+        
+        tp.setVisible(true);
+        loadTablePemasok();
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        DataPemasok.WarningHapusPemasok wn = new DataPemasok.WarningHapusPemasok(this, true);
+        wn.jLabel4.setText(getIdPemasok());
+        wn.setVisible(true);
+        loadTablePemasok();
+    }//GEN-LAST:event_jLabel7MouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -770,8 +1111,12 @@ public class Mainhome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JLabel IdTransaksi;
+
+    public javax.swing.JTable TabelPemasok;
     public static javax.swing.JTable TabelProduk;
+    public static javax.swing.JTable TabelStok;
     private javax.swing.JPanel Welcome_Screen;
     private javax.swing.JLabel bg_Lainnya;
     private javax.swing.JLabel bg_Laporan;
@@ -786,6 +1131,7 @@ public class Mainhome extends javax.swing.JFrame {
     private javax.swing.JLabel btnTambah3;
     private javax.swing.JLabel btnUbah;
     private javax.swing.JLabel btnUbah1;
+    private javax.swing.JLabel bgt_serachBox1;
     private javax.swing.JLabel btn_beranda;
     private javax.swing.JLabel btn_dataPemasok;
     private javax.swing.JLabel btn_dataProduk;
@@ -808,6 +1154,12 @@ public class Mainhome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jTextField1;
     public static javax.swing.JLabel lbl_id;
     private javax.swing.JLabel namaSupplier;
     private javax.swing.JPanel panel_Lainnya;
@@ -822,5 +1174,6 @@ public class Mainhome extends javax.swing.JFrame {
     private javax.swing.JLabel sidebar;
     private javax.swing.JLabel tgalTransaksi;
     private javax.swing.JTextField txt_searchProduk;
+    private javax.swing.JTextField txt_searchProduk1;
     // End of variables declaration//GEN-END:variables
 }
