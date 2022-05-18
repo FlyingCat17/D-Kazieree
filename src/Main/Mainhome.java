@@ -78,7 +78,7 @@ public class Mainhome extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        tb_pemasok = new javax.swing.JScrollPane();
         TabelPemasok = new javax.swing.JTable(){
 
             public boolean isCellEditable(int rowIndex, int colIndex)
@@ -96,7 +96,7 @@ public class Mainhome extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         txt_searchProduk1 = new javax.swing.JTextField();
         bgt_serachBox1 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        tb_stok = new javax.swing.JScrollPane();
         TabelStok = new javax.swing.JTable(){
 
             public boolean isCellEditable(int rowIndex, int colIndex)
@@ -113,7 +113,7 @@ public class Mainhome extends javax.swing.JFrame {
         btn_tambahProduk = new javax.swing.JLabel();
         txt_searchProduk = new javax.swing.JTextField();
         bgt_serachBox = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        tb_produk = new javax.swing.JScrollPane();
         TabelProduk = new javax.swing.JTable(){
 
             public boolean isCellEditable(int rowIndex, int colIndex)
@@ -265,7 +265,7 @@ public class Mainhome extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/searchBoxPemasok.png"))); // NOI18N
         panel_dataPemasok.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 550, 40));
 
-        jScrollPane3.setBorder(null);
+        tb_pemasok.setBorder(null);
 
         TabelPemasok.setFont(new java.awt.Font("Quicksand Medium", 0, 15)); // NOI18N
         TabelPemasok.setModel(new javax.swing.table.DefaultTableModel(
@@ -306,7 +306,7 @@ public class Mainhome extends javax.swing.JFrame {
                 TabelPemasokMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(TabelPemasok);
+        tb_pemasok.setViewportView(TabelPemasok);
         if (TabelPemasok.getColumnModel().getColumnCount() > 0) {
             TabelPemasok.getColumnModel().getColumn(0).setResizable(false);
             TabelPemasok.getColumnModel().getColumn(1).setResizable(false);
@@ -314,7 +314,7 @@ public class Mainhome extends javax.swing.JFrame {
             TabelPemasok.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        panel_dataPemasok.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 177, 860, 500));
+        panel_dataPemasok.add(tb_pemasok, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 177, 860, 500));
 
         bg_dataPemasok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataPemasok/formDatapemasok.png"))); // NOI18N
         panel_dataPemasok.add(bg_dataPemasok, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
@@ -358,7 +358,7 @@ public class Mainhome extends javax.swing.JFrame {
         bgt_serachBox1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataStok/searchBox (1).png"))); // NOI18N
         panel_dataStok.add(bgt_serachBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 640, 60));
 
-        jScrollPane2.setBorder(null);
+        tb_stok.setBorder(null);
 
         TabelStok.setFont(new java.awt.Font("Quicksand Medium", 0, 15)); // NOI18N
         TabelStok.setModel(new javax.swing.table.DefaultTableModel(
@@ -399,14 +399,14 @@ public class Mainhome extends javax.swing.JFrame {
                 TabelStokMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(TabelStok);
+        tb_stok.setViewportView(TabelStok);
         if (TabelStok.getColumnModel().getColumnCount() > 0) {
             TabelStok.getColumnModel().getColumn(0).setResizable(false);
             TabelStok.getColumnModel().getColumn(1).setResizable(false);
             TabelStok.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        panel_dataStok.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 860, 470));
+        panel_dataStok.add(tb_stok, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 860, 470));
 
         bg_dataStok.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataStok/formDataStok.png"))); // NOI18N
         panel_dataStok.add(bg_dataStok, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
@@ -463,7 +463,7 @@ public class Mainhome extends javax.swing.JFrame {
         bgt_serachBox.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataProduk/searchBox.png"))); // NOI18N
         panel_dataProduk.add(bgt_serachBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 360, 60));
 
-        jScrollPane1.setBorder(null);
+        tb_produk.setBorder(null);
 
         TabelProduk.setFont(new java.awt.Font("Quicksand Medium", 0, 15)); // NOI18N
         TabelProduk.setModel(new javax.swing.table.DefaultTableModel(
@@ -504,7 +504,7 @@ public class Mainhome extends javax.swing.JFrame {
                 TabelProdukMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(TabelProduk);
+        tb_produk.setViewportView(TabelProduk);
         if (TabelProduk.getColumnModel().getColumnCount() > 0) {
             TabelProduk.getColumnModel().getColumn(0).setResizable(false);
             TabelProduk.getColumnModel().getColumn(1).setResizable(false);
@@ -514,7 +514,7 @@ public class Mainhome extends javax.swing.JFrame {
             TabelProduk.getColumnModel().getColumn(4).setHeaderValue("Harga Jual");
         }
 
-        panel_dataProduk.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 177, 860, 500));
+        panel_dataProduk.add(tb_produk, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 177, 860, 500));
 
         bg_dataProduk.setIcon(new javax.swing.ImageIcon(getClass().getResource("/DataProduk/formDataProduk.png"))); // NOI18N
         panel_dataProduk.add(bg_dataProduk, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
@@ -663,7 +663,7 @@ public class Mainhome extends javax.swing.JFrame {
     public void loadTableProduk(){
     DefaultTableModel tbl = new DefaultTableModel();
             TabelProduk.setBorder(null);
-            jScrollPane1.setBorder(null);
+            tb_produk.setBorder(null);
             tbl.addColumn("ID Produk");
             tbl.addColumn("Nama Produk");
             tbl.addColumn("Satuan");
@@ -694,7 +694,7 @@ public class Mainhome extends javax.swing.JFrame {
     public void loadTableStok(){
         DefaultTableModel tbl = new DefaultTableModel();
             TabelStok.setBorder(null);
-            jScrollPane2.setBorder(null);
+            tb_stok.setBorder(null);
             tbl.addColumn("ID Produk");
             tbl.addColumn("Nama Produk");
             tbl.addColumn("Jumlah Stok");
@@ -724,7 +724,7 @@ public class Mainhome extends javax.swing.JFrame {
     public void loadTablePemasok(){
         DefaultTableModel tb = new DefaultTableModel();
         TabelPemasok.setBorder(null);
-        jScrollPane3.setBorder(null);
+        tb_pemasok.setBorder(null);
             tb.addColumn("ID Pemasok");
             tb.addColumn("Nama Pemasok");
             tb.addColumn("Usaha");
@@ -786,7 +786,7 @@ public class Mainhome extends javax.swing.JFrame {
         loadTableProduk();
         TabelProduk.setVisible(true);
         TabelProduk.getTableHeader().disable();
-        jScrollPane1.setVisible(true);
+        tb_produk.setVisible(true);
         Welcome_Screen.setVisible(false);
         panel_beranda.setVisible(false);
         panel_dataProduk.setVisible(true);
@@ -1156,9 +1156,6 @@ public class Mainhome extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    public static javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField1;
     public static javax.swing.JLabel lbl_id;
     private javax.swing.JLabel namaSupplier;
@@ -1172,6 +1169,9 @@ public class Mainhome extends javax.swing.JFrame {
     private javax.swing.JPanel panel_transaksiJual;
     private javax.swing.JLabel pilihPemasok;
     private javax.swing.JLabel sidebar;
+    public static javax.swing.JScrollPane tb_pemasok;
+    private javax.swing.JScrollPane tb_produk;
+    private javax.swing.JScrollPane tb_stok;
     private javax.swing.JLabel tgalTransaksi;
     private javax.swing.JTextField txt_searchProduk;
     private javax.swing.JTextField txt_searchProduk1;
