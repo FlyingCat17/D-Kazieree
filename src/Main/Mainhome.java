@@ -51,6 +51,10 @@ public class Mainhome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panel_transaksiBeli = new javax.swing.JPanel();
+        TBUtama = new javax.swing.JScrollPane();
+        TBUtamaTabel = new javax.swing.JTable();
+        bg_transaksiBeli = new javax.swing.JLabel();
         panel_dataPemasok = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -105,8 +109,6 @@ public class Mainhome extends javax.swing.JFrame {
         lbl_id = new javax.swing.JLabel();
         Welcome_Screen = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        panel_transaksiBeli = new javax.swing.JPanel();
-        bg_transaksiBeli = new javax.swing.JLabel();
         panel_transaksiJual = new javax.swing.JPanel();
         bg_transaksiJual = new javax.swing.JLabel();
         panel_Laporan = new javax.swing.JPanel();
@@ -129,6 +131,28 @@ public class Mainhome extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(1240, 707));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        panel_transaksiBeli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        TBUtamaTabel.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        TBUtama.setViewportView(TBUtamaTabel);
+
+        panel_transaksiBeli.add(TBUtama, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 860, -1));
+
+        bg_transaksiBeli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TransaksiBeli/formTransbeli.png"))); // NOI18N
+        panel_transaksiBeli.add(bg_transaksiBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
+
+        getContentPane().add(panel_transaksiBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
 
         panel_dataPemasok.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -425,13 +449,6 @@ public class Mainhome extends javax.swing.JFrame {
         Welcome_Screen.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, -1));
 
         getContentPane().add(Welcome_Screen, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 0, 960, 710));
-
-        panel_transaksiBeli.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        bg_transaksiBeli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/TransaksiBeli/formTransbeli.png"))); // NOI18N
-        panel_transaksiBeli.add(bg_transaksiBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 710));
-
-        getContentPane().add(panel_transaksiBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 960, 710));
 
         panel_transaksiJual.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -983,6 +1000,8 @@ public class Mainhome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane TBUtama;
+    private javax.swing.JTable TBUtamaTabel;
     public javax.swing.JTable TabelPemasok;
     public static javax.swing.JTable TabelProduk;
     public static javax.swing.JTable TabelStok;
