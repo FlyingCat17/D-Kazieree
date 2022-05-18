@@ -19,7 +19,7 @@ public class dataPemasok {
     public void loadDataPemasok(){
         DefaultTableModel tb = new DefaultTableModel();
         mn.TabelPemasok.setBorder(null);
-        mn.jScrollPane3.setBorder(null);
+        mn.tb_pemasok.setBorder(null);
             tb.addColumn("ID Pemasok");
             tb.addColumn("Nama Pemasok");
             tb.addColumn("Usaha");
